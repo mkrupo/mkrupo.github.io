@@ -3,54 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TBD Name</title>
+  <title>Maximilian Krupop</title>
 
-  <!-- IBM Plex Mono from Google Fonts for now -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
-    <div>
-      <h1>TBD Name</h1>
-      <p class="tagline">TBD short tagline</p>
+    <div class="topbar">
+      <a href="#" class="site-name">Maximilian Krupop</a>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle light and dark mode"
+        title="Toggle theme"
+      >
+        <span class="icon-sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="M4.93 4.93l1.41 1.41"></path>
+            <path d="M17.66 17.66l1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="M4.93 19.07l1.41-1.41"></path>
+            <path d="M17.66 6.34l1.41-1.41"></path>
+          </svg>
+        </span>
+
+        <span class="icon-moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </span>
+      </button>
     </div>
-    <button id="theme-toggle" aria-label="Toggle light and dark mode">
-      Toggle theme
-    </button>
+
+    <section class="hero">
+      <p class="eyebrow">AI / Machine Learning / NLP</p>
+      <h1>Graduate student building and studying language technologies.</h1>
+      <p class="hero-text">
+        Hi! I'm Max, currently pursuing a PhD at University of Potsdam. My research focuses on language understanding, discourse-level modeling, and human label variation.
+      </p>
+
+      <div class="hero-links">
+        <a href="https://github.com/mkrupo" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://huggingface.co/przvl" target="_blank" rel="noopener noreferrer">Hugging Face</a>
+      </div>
+    </section>
   </header>
 
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>TBD short bio.</p>
+  <main class="content">
+    <section class="content-section">
+      <h2>Research & Interests</h2>
+      <p>
+        I work in artificial intelligence, machine learning, and natural language
+        processing, with a particular interest in language understanding,
+        discourse-level modeling, and human label variation. 
+      </p>
     </section>
 
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>TBD project 1</li>
-        <li>TBD project 2</li>
-        <li>TBD project 3</li>
+    <!--<section class="content-section">
+      <h2>Selected Projects</h2>
+      <ul class="project-list">
+        <li>
+          <strong>Project title</strong><br>
+          <span>Short one-line description.</span>
+        </li>
+        <li>
+          <strong>Project title</strong><br>
+          <span>Short one-line description.</span>
+        </li>
+        <li>
+          <strong>Project title</strong><br>
+          <span>Short one-line description.</span>
+        </li>
       </ul>
-    </section>
+    </section> -->
 
-    <section>
+    <!-- <section class="content-section">
       <h2>CV</h2>
-      <p><a href="#">TBD CV link</a></p>
-    </section>
+      <p>
+        <a href="#">Download CV</a>
+      </p>
+    </section> -->
 
-    <section>
+    <section class="content-section">
       <h2>Contact</h2>
-      <p>TBD email / GitHub / LinkedIn</p>
+      <p>
+        Email: krupop1 [at] uni-potsdam [dot] de
+      </p>
     </section>
   </main>
 
-  <footer>
-    <p>Last updated: TBD</p>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Maximilian Krupop. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
