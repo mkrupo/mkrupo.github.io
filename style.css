@@ -262,6 +262,20 @@ body.dark .hf-icon img {
   filter: brightness(0) invert(1);
 }
 
+.linkedin-icon {
+  width: 1.5rem;
+  height: 1.4rem;
+  flex: 0 0 1.5rem;
+  background-image: url("assets/icons/InBug-Black.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+body.dark .linkedin-icon {
+  background-image: url("assets/icons/InBug-White.png");
+}
+
 .site-footer {
   padding-top: 0.75rem;
   padding-bottom: 2rem;
