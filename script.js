@@ -1,16 +1,39 @@
 const toggleButton = document.getElementById("theme-toggle");
-const savedTheme = localStorage.getItem("theme");
+const yearSpan = document.getElementById("year");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-if (savedTheme === "dark") {
-  document.body.classList.add("dark");
+function applyTheme(theme) {
+  document.body.classList.toggle("dark", theme === "dark");
+}
+
+function getInitialTheme() {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "light" || savedTheme === "dark") {
+    return savedTheme;
+  }
+
+  return systemTheme.matches ? "dark" : "light";
+}
+
+applyTheme(getInitialTheme());
+
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
 }
 
 toggleButton.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+  const isDark = document.body.classList.contains("dark");
+  const newTheme = isDark ? "light" : "dark";
 
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
+  applyTheme(newTheme);
+  localStorage.setItem("theme", newTheme);
+});
+
+systemTheme.addEventListener("change", (event) => {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (!savedTheme) {
+    applyTheme(event.matches ? "dark" : "light");
   }
 });
