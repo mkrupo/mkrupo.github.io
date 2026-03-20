@@ -1,0 +1,74 @@
+:root {
+  --bg: #f7f7f7;
+  --text: #111111;
+  --muted: #555555;
+  --card: #ffffff;
+  --border: #dddddd;
+  --link: #0a66cc;
+}
+
+body.dark {
+  --bg: #111111;
+  --text: #f5f5f5;
+  --muted: #bbbbbb;
+  --card: #1a1a1a;
+  --border: #333333;
+  --link: #7db7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.site-header,
+main,
+footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+.tagline {
+  color: var(--muted);
+}
+
+section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+a {
+  color: var(--link);
+}
+
+button {
+  font: inherit;
+  padding: 0.6rem 0.9rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
