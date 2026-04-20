@@ -262,6 +262,14 @@ body.dark .hf-icon img {
   filter: brightness(0) invert(1);
 }
 
+.gitlab-icon img {
+  filter: none;
+}
+
+body.dark .gitlab-icon img {
+  filter: brightness(0) invert(1);
+}
+
 .linkedin-icon {
   width: 1.5rem;
   height: 1.4rem;
