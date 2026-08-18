@@ -171,13 +171,6 @@ body.dark .icon-moon {
   line-height: 1.35;
 }
 
-.hero-meta {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
 .hero-text {
   margin-bottom: 0;
   font-size: 1rem;
@@ -211,6 +204,44 @@ a {
 
 .focus-list li + li {
   margin-top: 0.6rem;
+}
+
+.updates-section h1 {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
+}
+
+.updates-list {
+  margin-top: 1.35rem;
+}
+
+.update-entry {
+  display: grid;
+  grid-template-columns: minmax(7rem, auto) 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.update-entry:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.update-entry time {
+  color: var(--muted);
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.update-entry p,
+.updates-empty {
+  margin: 0;
+}
+
+.updates-empty {
+  color: var(--muted);
 }
 
 .contact-list {
@@ -259,6 +290,14 @@ a {
 }
 
 body.dark .hf-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.gitlab-icon img {
+  filter: none;
+}
+
+body.dark .gitlab-icon img {
   filter: brightness(0) invert(1);
 }
 
@@ -325,5 +364,10 @@ body.dark .orcid-icon-dark {
 
   .site-nav {
     gap: 0.75rem;
+  }
+
+  .update-entry {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
   }
 }
