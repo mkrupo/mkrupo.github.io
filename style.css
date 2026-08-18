@@ -333,10 +333,25 @@ body.dark .orcid-icon-dark {
 }
 
 .site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 2rem;
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.back-to-top {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.back-to-top:hover {
+  color: var(--text);
+  text-decoration: underline;
 }
 
 @media (max-width: 700px) {
