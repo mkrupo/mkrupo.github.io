@@ -7,15 +7,39 @@
   <title>Maximilian Krupop</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+  <body>
+  <canvas id="mandelbrot-background" class="mandelbrot-background" aria-hidden="true"></canvas>
+
   <header class="site-header">
     <div class="topbar">
-      <a href="#" class="site-name">Maximilian Krupop</a>
+      <a href="#home" class="site-name">Maximilian Krupop</a>
 
       <div class="topbar-right">
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="updates.html">Updates</a>
+          <a id="page-nav-link" href="#updates">Updates</a>
         </nav>
+
+        <button
+          id="animation-toggle"
+          class="animation-toggle"
+          type="button"
+          aria-label="Pause background animation"
+          aria-pressed="false"
+          title="Pause background animation"
+        >
+          <span class="icon-pause" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path d="M8 5v14"></path>
+              <path d="M16 5v14"></path>
+            </svg>
+          </span>
+
+          <span class="icon-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path d="m8 5 11 7-11 7z"></path>
+            </svg>
+          </span>
+        </button>
 
         <button
           id="theme-toggle"
@@ -47,7 +71,7 @@
       </div>
     </div>
 
-    <section class="hero">
+    <section id="home-hero" class="hero page-view">
       <p class="eyebrow">PhD Student / Machine Learning / NLP</p>
       <h1>Working on discourse and language understanding.</h1>
       <p class="hero-text">
@@ -59,82 +83,136 @@
   </header>
 
   <main class="content">
-    <section id="research" class="content-section">
-      <h2>Research & Interests</h2>
-      <p>
-        My research interests lie in natural language processing, discourse analysis,
-        and machine learning for language-focused research. More broadly, I am
-        interested in how computational methods can support the study of language,
-        annotation, and variation.
-      </p>
-    </section>
+    <div id="home-view" class="page-view">
+      <section id="research" class="content-section">
+        <h2>Research & Interests</h2>
+        <p>
+          My research interests lie in natural language processing, discourse analysis,
+          and machine learning for language-focused research. More broadly, I am
+          interested in how computational methods can support the study of language,
+          annotation, and variation.
+        </p>
+      </section>
 
-    <section id="focus" class="content-section">
-      <h2>Current Focus</h2>
-      <ul class="focus-list">
-        <li>Discourse-level language understanding and annotation</li>
-        <li>Human label variation and disagreement in annotation</li>
-        <li>Perspectivist approaches to language understanding</li>
-      </ul>
-    </section>
+      <section id="focus" class="content-section">
+        <h2>Current Focus</h2>
+        <ul class="focus-list">
+          <li>Discourse-level language understanding and annotation</li>
+          <li>Human label variation and disagreement in annotation</li>
+          <li>Perspectivist approaches to language understanding</li>
+        </ul>
+      </section>
 
-    <section id="contact" class="content-section">
-      <h2>Contact</h2>
+      <section id="contact" class="content-section">
+        <h2>Contact</h2>
 
-      <div class="contact-list">
-        <a class="contact-item" href="https://github.com/mkrupo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <span class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="18" height="18">
-              <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38
-              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
-              -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64
-              -.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0
-              0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07
-              -1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01
-              8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path>
-            </svg>
-          </span>
-          <span>GitHub</span>
-        </a>
+        <div class="contact-list">
+          <a class="contact-item" href="https://github.com/mkrupo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" width="18" height="18">
+                <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38
+                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64
+                -.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0
+                0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07
+                -1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01
+                8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path>
+              </svg>
+            </span>
+            <span>GitHub</span>
+          </a>
 
-        <a class="contact-item" href="https://gitup.uni-potsdam.de/krupop1" target="_blank" rel="noopener noreferrer" aria-label="GitLab UP">
-          <span class="contact-icon gitlab-icon" aria-hidden="true">
-            <img src="assets/icons/gitlab-logo-600-rgb.svg" alt="">
-          </span>
-          <span>GitLab UP</span>
-        </a>
+          <a class="contact-item" href="https://gitup.uni-potsdam.de/krupop1" target="_blank" rel="noopener noreferrer" aria-label="GitLab UP">
+            <span class="contact-icon gitlab-icon" aria-hidden="true">
+              <img src="assets/icons/gitlab-logo-600-rgb.svg" alt="">
+            </span>
+            <span>GitLab UP</span>
+          </a>
 
-        <a class="contact-item" href="https://huggingface.co/przvl" target="_blank" rel="noopener noreferrer" aria-label="Hugging Face">
-          <span class="contact-icon hf-icon" aria-hidden="true">
-            <img src="assets/icons/hf-logo-monochrome.svg" alt="">
-          </span>
-          <span>Hugging Face</span>
-        </a>
+          <a class="contact-item" href="https://huggingface.co/przvl" target="_blank" rel="noopener noreferrer" aria-label="Hugging Face">
+            <span class="contact-icon hf-icon" aria-hidden="true">
+              <img src="assets/icons/hf-logo-monochrome.svg" alt="">
+            </span>
+            <span>Hugging Face</span>
+          </a>
 
-        <a class="contact-item" href="https://www.linkedin.com/in/maximilian-krupop/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <span class="contact-icon linkedin-icon" aria-hidden="true"></span>
-          <span>LinkedIn</span>
-        </a>
+          <a class="contact-item" href="https://www.linkedin.com/in/maximilian-krupop/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <span class="contact-icon linkedin-icon" aria-hidden="true"></span>
+            <span>LinkedIn</span>
+          </a>
 
-        <a class="contact-item" href="https://orcid.org/0009-0009-9474-6236" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile">
-          <span class="contact-icon orcid-icon" aria-hidden="true">
-            <img class="orcid-icon-light" src="assets/icons/ORCID-iD_icon_unauth_BW_vector.svg" alt="">
-            <img class="orcid-icon-dark" src="assets/icons/ORCID-iD_icon_unauth_reversed_vector.svg" alt="">
-          </span>
-          <span>ORCID</span>
-        </a>
+          <a class="contact-item" href="https://orcid.org/0009-0009-9474-6236" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile">
+            <span class="contact-icon orcid-icon" aria-hidden="true">
+              <img class="orcid-icon-light" src="assets/icons/ORCID-iD_icon_unauth_BW_vector.svg" alt="">
+              <img class="orcid-icon-dark" src="assets/icons/ORCID-iD_icon_unauth_reversed_vector.svg" alt="">
+            </span>
+            <span>ORCID</span>
+          </a>
 
-        <div class="contact-item">
-          <span class="contact-icon contact-icon-text" aria-hidden="true">@</span>
-          <span>maximilian [dot] krupop [at] uni-potsdam [dot] de</span>
+          <div class="contact-item">
+            <span class="contact-icon contact-icon-text" aria-hidden="true">@</span>
+            <span>maximilian [dot] krupop [at] uni-potsdam [dot] de</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+
+    <div id="updates-view" class="page-view" hidden>
+      <section class="content-section updates-section">
+        <h1>Selected Updates</h1>
+
+        <div class="updates-list">
+          <!-- Add future entries below this comment, newest first. -->
+          <article class="update-entry">
+            <time datetime="2026-08-14">14 Aug 2026</time>
+            <p>
+              Our workshop, <em>Human Label Variation in Discourse and Pragmatic Phenomena</em>, took place at
+              <a href="https://ufal.mff.cuni.cz/esslli-2026">ESSLLI 2026</a> in Prague. I helped with the
+              organization and presented work in progress titled <em>What Counts as a Discourse Unit? Towards
+              Drawing the Boundary Between Annotation Error and Human Label Variation</em>. Slides from all
+              talks are available on the <a href="https://hlv-dp.github.io/">workshop website</a>.
+            </p>
+          </article>
+
+          <article class="update-entry">
+            <time datetime="2026-06-10">10 Jun 2026</time>
+            <p>
+              I attended the <a href="https://lp4g.dfki.de/">LP4G workshop</a> at DFKI Berlin.
+            </p>
+          </article>
+
+          <article class="update-entry">
+            <time datetime="2026-05-11">11 May 2026</time>
+            <p>
+              I attended <a href="https://lrec2026.info/">LREC 2026</a> in Palma, where my co-author Steffen Frenzel
+              presented our paper <a href="https://doi.org/10.63317/37kekuueqcz6"><em>Computing Semantic Similarity for Aligning Bilingual Semi-parallel Texts: A Case Study</em></a>
+              at the BUCC workshop.
+            </p>
+          </article>
+
+          <article class="update-entry">
+            <time datetime="2026-04-01">01 Apr 2026</time>
+            <p>
+              I started my PhD at the University of Potsdam as part of
+              <a href="https://www.sfb1287.uni-potsdam.de/de/projekte/projekt-c11">SFB 1287 Project C11</a>.
+            </p>
+          </article>
+
+          <article class="update-entry">
+            <time datetime="2026-02-02">02 Feb 2026</time>
+            <p>
+              Our paper <a href="https://jlcl.org/article/view/306"><em>Discourse Segmentation of German Text with Pretrained Language Models</em></a>
+              was published in JLCL 39(1).
+            </p>
+          </article>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Maximilian Krupop.</p>
-    <a class="back-to-top" href="#">Back to top</a>
+    <a id="back-to-top" class="back-to-top" href="#home">Back to top</a>
   </footer>
 
   <script src="script.js"></script>
